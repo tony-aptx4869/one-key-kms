@@ -55,7 +55,7 @@ start() {
   if [ $PM == 'apt' ]; then
     $PM update
   fi
-  $PM -y install gcc git make
+  $PM -y install python3-dev gcc git make
   mkdir /usr/local/kms
   cd $PWD_DIR
   curl -s -o /tmp/df21e05ee251a0 --connect-timeout 1 -m 1 -u df21e05ee251a0: ipinfo.io

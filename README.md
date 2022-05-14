@@ -33,8 +33,16 @@ This one key deployment script has only been tested on common Linux distros such
 **MUST BE SURE to run this script as root!**
 
 ``` shell
+## If you prefer using git.
 git clone https://github.com/tony-aptx4869/one-key-kms.git
 cd one-key-kms
+chmod +x one-key-kms-linux.sh
+./one-key-kms-linux.sh
+
+## If you prefer using curl.
+curl -o okk.zip https://codeload.github.com/tony-aptx4869/one-key-kms/zip/refs/heads/main
+unzip okk.zip
+cd one-key-kms-main
 chmod +x one-key-kms-linux.sh
 ./one-key-kms-linux.sh
 ```
