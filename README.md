@@ -1,0 +1,46 @@
+# one-key-kms
+
+## 简介
+
+在 Linux 系统一键部署 KMS Server 程序的 Shell 脚本，且会将 KMS Server 做成 service 以方便日常管理。
+
+目前仅支持使用 `yum` 或者 `apt` 作为包管理器的 Linux 发行版系统。服务器要追求稳定，一般都会使用 CentOS、Rocky 这些操作系统吧，再不济的，像作者比较喜欢用 Ubuntu 系统。 (#^.^#)
+
+该一键部署脚本仅在 CentOS、Rocky、Ubuntu 等常见 Linux 发行版，且仅在少数常用版本上进行过测试，无法 100% 保证在您的系统环境下执行无任何异常。请您使用前仔细阅读脚本命令，判断是否可以执行。
+
+## 使用
+
+**请务必使用 root 用户运行此脚本！**
+
+``` shell
+git clone https://github.com/tony-aptx4869/one-key-kms.git
+cd one-key-kms
+chmod +x one-key-kms-linux.sh
+./one-key-kms-linux.sh
+```
+
+运行脚本，敲入大写字母 Y 后回车，剩下的脚本会搞定。
+
+脚本运行完毕，正常的情况下，KMS Server 的 service 已经跑起来了，可以使用以下命令进行管理：
+
+``` shell
+service kms start
+service kms stop
+service kms restart
+service kms status
+```
+
+以上四条命令也可以写成：
+
+``` shell
+systemctl start kms
+systemctl stop kms
+systemctl restart kms
+systemctl status kms
+```
+
+## 鸣谢
+
+鸣谢 KMS Server 程序的开发者 Wind4。
+
+他的传送门：https://github.com/Wind4/vlmcsd

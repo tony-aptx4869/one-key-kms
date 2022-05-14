@@ -1,0 +1,13 @@
+[Unit]
+Description=KMS Server (vlmcsd)
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/run/vlmcsd.pid
+ExecStart=/usr/local/kms/vlmcsd -L 0.0.0.0:1688 -l /var/log/kms.log -p /run/vlmcsd.pid
+ExecStop=/bin/kill -HUP $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
