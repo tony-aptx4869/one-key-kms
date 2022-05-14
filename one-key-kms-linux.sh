@@ -28,6 +28,9 @@ get_dist_and_pm() {
   elif grep -Eqi "TencentOS" /etc/issue || grep -Eq "TencentOS" /etc/*-release; then
     DISTRO='TencentOS'
     PM='yum'
+  elif grep -Eqi "OpenCloudOS" /etc/issue || grep -Eq "OpenCloudOS" /etc/*-release; then
+    DISTRO='OpenCloudOS'
+    PM='yum'
   elif grep -Eqi "Debian" /etc/issue || grep -Eq "Debian" /etc/*-release; then
     DISTRO='Debian'
     PM='apt'

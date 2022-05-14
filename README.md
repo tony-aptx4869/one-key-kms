@@ -14,6 +14,18 @@ Currently only Linux distros which use `yum` or `apt` as package managers are su
 
 This one key deployment script has only been tested on common Linux distros such as CentOS, Rocky, and Ubuntu, and has only been tested on a few commonly used versions. There is no 100% guarantee that it will execute without any exceptions in your system environment. Please read the script command carefully before use to determine whether it can be executed on your operating system.
 
+## 测试结果 / Test Results
+
+| Linux Distro & Version | Test Result |
+| ---------------------- | :---------: |
+| CentOS Stream 9        | :o: OK      |
+| CentOS Stream 8        | :o: OK      |
+| CentOS 7.9.2009        | :o: OK      |
+| Rocky 8.5              | :o: OK      |
+| TencentOS 3.1          | :o: OK      |
+| OpenCloudOS 8.5        | :o: OK      |
+| Ubuntu 20.04.4 LTS     | :o: OK      |
+
 ## 使用 / Usage
 
 **请务必使用 root 用户运行此脚本！**
