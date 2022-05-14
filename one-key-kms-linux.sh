@@ -47,7 +47,8 @@ start() {
   PWD_DIR=$(pwd)
   CLONE_DIR="vlmcsd_one_key"
   GITHUB_REPO="https://github.com/Wind4/vlmcsd.git"
-
+  service kms stop
+  systemctl disable kms.service
   if [ $PM == 'apt' ]; then
     $PM update
   fi
@@ -114,9 +115,9 @@ WantedBy=multi-user.target
   exit 0
 }
 
-echo "################################################################################"
-echo "#                  KMS Server One Key Deploy Script for Linux                  #"
-echo "################################################################################"
+echo "################################################################"
+echo "#          KMS Server One Key Deploy Script for Linux          #"
+echo "################################################################"
 get_dist_and_pm
 if [ $DISTRO == 'unknown' ] || [ $PM == 'unknown' ]; then
   echo "Sorry!"
