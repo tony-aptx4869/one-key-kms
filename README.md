@@ -43,7 +43,7 @@ chmod +x one-key-kms-linux.sh
 ## If you prefer using curl.
 curl -o okk.zip https://codeload.github.com/tony-aptx4869/one-key-kms/zip/refs/tags/latest
 unzip okk.zip
-cd one-key-kms-main
+cd one-key-kms-latest
 chmod +x one-key-kms-linux.sh
 ./one-key-kms-linux.sh
 ```
