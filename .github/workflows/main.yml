@@ -29,6 +29,6 @@ jobs:
       - name: Run the `one-key-kms-linux.sh` script
         run: |
           sudo -i
-          cd $GITHUB_WORKSPACE
-          ./one-key-kms-linux.sh -y
+          sudo cd $GITHUB_WORKSPACE
+          sudo ./one-key-kms-linux.sh -y
 
