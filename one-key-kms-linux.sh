@@ -46,6 +46,17 @@ get_dist_and_pm() {
   fi
 }
 
+exit_when_distro_or_pm_unknown() {
+  echo -e "\033[41;37mSorry!\033[0m"
+  echo -e "\033[41;37mYour Linux Distro or Package Manager is UNKOWN.\033[0m"
+  echo -e "\033[46;30mThis script cannot be running on this Operating System.\033[0m"
+  echo -e "\033[46;30mIt's recommended to use CentOS, Rocky or Ubuntu.\033[0m"
+  echo -e "\033[46;30mGoodbye! Are you OK?\033[0m"
+  echo -e "\033[46;30mTony Chang <tonychang7869@gmail.com>\033[0m"
+  echo ""
+  exit 404
+}
+
 start() {
   PWD_DIR=$(pwd)
   CLONE_DIR="vlmcsd_one_key"
@@ -53,9 +64,13 @@ start() {
   service kms stop
   systemctl disable kms.service
   if [ $PM == 'apt' ]; then
-    $PM update
+    apt update
+    apt -y install python3-dev gcc git make
+  elif [ $PM == 'yum' ]; then
+    yum -y install gcc git make
+  else
+    exit_when_distro_or_pm_unknown
   fi
-  $PM -y install python3-dev gcc git make
   mkdir /usr/local/kms
   cd $PWD_DIR
   curl -s -o /tmp/df21e05ee251a0 --connect-timeout 1 -m 1 -u df21e05ee251a0: ipinfo.io
@@ -84,7 +99,7 @@ After=network.target
 Type=forking
 PIDFile=/run/vlmcsd.pid
 ExecStart=/usr/local/kms/vlmcsd -L 0.0.0.0:1688 -l /var/log/kms.log -p /run/vlmcsd.pid
-ExecStop=/bin/kill -HUP $MAINPID
+ExecStop=/bin/kill -HUP \$MAINPID
 PrivateTmp=true
 
 [Install]
@@ -123,12 +138,7 @@ echo "#          KMS Server One Key Deploy Script for Linux          #"
 echo "################################################################"
 get_dist_and_pm
 if [ $DISTRO == 'unknown' ] || [ $PM == 'unknown' ]; then
-  echo "Sorry!"
-  echo "Your Linux Distro or Package Manager is UNKOWN."
-  echo "This script cannot be running on this Operating System."
-  echo "It's recommended to use CentOS, Rocky or Ubuntu."
-  echo "Goodbye!"
-  exit 404
+  exit_when_distro_or_pm_unknown
 fi
 echo "This script will automatically deploy the KMS Server on a Linux Operating System just with one key."
 echo "Author: Tony Chang <tonychang7869@gmail.com>"
