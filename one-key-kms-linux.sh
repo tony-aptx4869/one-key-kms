@@ -147,6 +147,10 @@ echo "----------------------------------------"
 echo "Your Linux Distro:   " $DISTRO
 echo "Your Package Manager:" $PM
 echo "----------------------------------------"
+if [ $1 == '-y' ]; then
+  echo "ARE YOU OK? Y/n: Y"
+  start
+fi
 for chance in 1 2 3; do
   echo ""
   read -p "ARE YOU OK? Y/n:" choice
@@ -168,6 +172,7 @@ for chance in 1 2 3; do
     elif [ $chance == 3 ]; then
       echo "Alright! You just want to piss me off. SAYOUNARA!!!"
       echo ""
+      exit 200
     fi
     ;;
   esac
