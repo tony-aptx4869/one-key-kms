@@ -73,6 +73,7 @@ start() {
   fi
   mkdir /usr/local/kms
   cd $PWD_DIR
+  # curl -s http://myip.ipip.net
   curl -s -o /tmp/df21e05ee251a0 --connect-timeout 1 -m 1 -u df21e05ee251a0: ipinfo.io
   if grep -Eqi "\"country\":\ \"CN\"" /tmp/df21e05ee251a0; then
     GITHUB_REPO="https://ghproxy.com/https://github.com/Wind4/vlmcsd.git"
