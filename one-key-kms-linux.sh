@@ -76,7 +76,7 @@ start() {
   # curl -s http://myip.ipip.net
   curl -s -o /tmp/df21e05ee251a0 --connect-timeout 1 -m 1 -u df21e05ee251a0: ipinfo.io
   if grep -Eqi "\"country\":\ \"CN\"" /tmp/df21e05ee251a0; then
-    GITHUB_REPO="https://ghproxy.com/https://github.com/Wind4/vlmcsd.git"
+    GITHUB_REPO="https://mirror.ghproxy.com/https://github.com/Wind4/vlmcsd.git"
     echo ""
     echo -e "\033[41;33mYou are in Mainland, China! Using proxy to git clone.\033[0m"
     echo ""
